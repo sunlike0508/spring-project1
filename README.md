@@ -106,12 +106,17 @@ HTTP 메시지 컨버터는 HTTP 요청, HTTP 응답 둘 다 사용된다.
 1) 컨트롤러에서 `@ResponseBody` , `HttpEntity` 로 값이 반환된다.
 2) 메시지 컨버터가 메시지를 쓸 수 있는지 확인하기 위해 `canWrite()` 를 호출한다.
 
-* 대상 클래스 타입을 지원하는가.
-  예) return의 대상 클래스 (`byte[]` , `String` , `HelloData`)
-* HTTP 요청의 Accept 미디어 타입을 지원하는가.(더 정확히는 `@RequestMapping` 의 `produces`)   예) `text/plain` , `application/json` , `*/*`
+    * 대상 클래스 타입을 지원하는가.
+      예) return의 대상 클래스 (`byte[]` , `String` , `HelloData`)
+    * HTTP 요청의 Accept 미디어 타입을 지원하는가.(더 정확히는 `@RequestMapping` 의 `produces`)   예) `text/plain` , `application/json` , `*/*`
 
 3) `canWrite()` 조건을 만족하면 `write()` 를 호출해서 HTTP 응답 메시지 바디에 데이터를 생성한다.
 
 ## 요청 매핑 핸들러 어댑터 구조
 
 위에서 메시지 컨버터는 어디에 있는 걸까? 일단 정답은 핸들러 어댑터에 있다.
+
+<img width="917" alt="Screenshot 2024-08-30 at 00 46 58" src="https://github.com/user-attachments/assets/3373c544-9fc2-49ee-b99e-390f9d270966">
+
+
+
