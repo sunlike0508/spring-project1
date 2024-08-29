@@ -39,6 +39,7 @@ RequestEntity, ResponseEntity은 HttpEntity을 상속받아 각각 요청과 응
 뷰 템플릿으로 HTML을 생성해서 응답하는 것이 아니라 HTTP API처럼 json 데이터를 http 메시지 바디에서 직접 읽거나 쓰는 경우 http 메시지 컨버터를 사용하면 편리하다.
 
 
+<img width="938" alt="Screenshot 2024-08-30 at 00 31 03" src="https://github.com/user-attachments/assets/15b2b908-4026-4e3b-a8a5-ec3f8559682e">
 
 
 
