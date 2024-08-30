@@ -108,7 +108,8 @@ HTTP 메시지 컨버터는 HTTP 요청, HTTP 응답 둘 다 사용된다.
 
     * 대상 클래스 타입을 지원하는가.
       예) return의 대상 클래스 (`byte[]` , `String` , `HelloData`)
-    * HTTP 요청의 Accept 미디어 타입을 지원하는가.(더 정확히는 `@RequestMapping` 의 `produces`)   예) `text/plain` , `application/json` , `*/*`
+    * HTTP 요청의 Accept 미디어 타입을 지원하는가.(더 정확히는 `@RequestMapping` 의 `produces`)   예) `text/plain` , `application/json`
+      , `*/*`
 
 3) `canWrite()` 조건을 만족하면 `write()` 를 호출해서 HTTP 응답 메시지 바디에 데이터를 생성한다.
 
@@ -117,6 +118,17 @@ HTTP 메시지 컨버터는 HTTP 요청, HTTP 응답 둘 다 사용된다.
 위에서 메시지 컨버터는 어디에 있는 걸까? 일단 정답은 핸들러 어댑터에 있다.
 
 <img width="917" alt="Screenshot 2024-08-30 at 00 46 58" src="https://github.com/user-attachments/assets/3373c544-9fc2-49ee-b99e-390f9d270966">
+
+### ArgumentResolver
+
+애노테이션 기반의 컨트롤러는 매우 다양한 파라미터를 사용할 수 있다.
+
+httpservletrequest, model, @Requestparam, @ModelAttribute, @ReuqestBody, HttpEntity 등.
+
+RequestMappingHandlerAdapter는 ArgumentResolver를 통해 컨트롤러가 필요로 하는 다양한 파라미터의 값(객체)를 생성해준다. (이때가 바로 메시지 컨버터가 작동한다.
+ArgumentResolver 안에 있다기 보다는 그 옆에서 도와주는 역할)
+
+반대로 응답에는 ReturnValueHandler(<->ArgumentResolver)가 있다.
 
 
 
